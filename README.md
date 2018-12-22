@@ -1,33 +1,41 @@
-# Is the salary of female developers lower than that of male?
-![avatar](./title.jpg)
-Last month I read 'Man Disconnected:How technology has sabotaged what it means to be male' , a book written by  Philip Zimbardo / Nikita D. Coulombe.The book tell us that manhood is in crisis. So I want to find out if the salary of female developers is higher than that of male at present.<br>
-StackOverflow has published the results of their 2017 and 2018 Developer Survey. <br>
-Let's take a look at the difference in wages between male and female developers in 2 years.
-We have 12891 salary data in 2017 and 50578 salary data in 2018 <br>
-A quartile is a type of quantile. The first quartile (Q1) is defined as the middle number between the smallest number and the median of the data set. The second quartile (Q2) is the median of the data. The third quartile (Q3) is the middle value between the median and the highest value of the data set. <br>
-So I choose the salary from Q1 to Q3 in order to avoid extreme values.
+
+### Table of Contents
+
+1. [Installation](#installation)
+2. [Project Motivation](#motivation)
+3. [File Descriptions](#files)
+4. [Results](#results)
+5. [Licensing, Authors, and Acknowledgements](#licensing)
+
+## Installation <a name="installation"></a>
+
+If you are using Python3 from https://www.python.org,  then you can use the standard pip installer to install libraries.
+
+pip install pandas <br>
+pip install seaborn <br>
+pip install numpy <br>
+pip install matplotlib <br>
+
+## Project Motivation<a name="motivation"></a>
+
+For this project, I was interestested in using Stack Overflow data from 2017 and 2018 to figure out whether the salary of female developers lower than that of male.
 
 
-We will investigate this issue in three steps.
-## Question 1:Is wages increased?
-![avatar](./q1_bar.png)
-![avatar](./q1_line.png)
-<br>
-The answer is very clear.Low-income developers’ wages fall.Middle-income developers are basically flat.High-income developer income has increased significantly.
+1. Question 1:Is wages increased??
+2. Question 2:Does female developer salary increase?
+3. Question 3:Is women’s wages are higher than men’s?
 
-## Question 2:Does female developer salary increase?
-![avatar](./q2_bar.png)
-<br>
- We can see that the average annual income of female developers has increased by more than 11.2% this year.
 
-## Question 3:Is women’s wages are higher than men’s?
-![avatar](./q3_2017.png)
-<center>2017</center>
 
-![avatar](./q3_2018.png)
-<center>2018</center>
-<br>
-Looking at the data from these two years,The average income of female developers is basically the same as that of men, but there is a slight overshoot.
-<br>
-If the data can represent the current income of all developers,we can answer the question of the title.  The answer is direct negative.But the survey_results_public of stackoverflow is not enough, and there is a lack of data from many countries, such as China,so only as a reference.<br>
-[Code source](https://github.com/xueweiyema/xueweiyema.github.io/blob/master/SalaryTrend.ipynb) 
+## File Descriptions <a name="files"></a>
+
+There is one notebooks available here to showcase work related to the above questions.
+The StackOverflow data from 2017 and 2018 is [here](https://insights.stackoverflow.com/survey)
+
+## Results<a name="results"></a>
+
+The main findings of the code can be found at the post available [here](https://xueweiyema.github.io/).
+
+## Licensing, Authors, Acknowledgements<a name="licensing"></a>
+
+Must give credit to Stack Overflow for the data.  You can find the Licensing for the data and other descriptive information at the Kaggle link available [here](https://insights.stackoverflow.com/survey).  Otherwise, feel free to use the code here as you would like! 
