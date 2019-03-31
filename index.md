@@ -1,6 +1,6 @@
 # <center>  Customer Segmentation Report for Arvato Financial Services </center>
 *A report for Udacity Data Scientist Capstone Project* <br>
-![avatar](/pic/title.jpg)
+![avatar](/pic/1.jpg)
 
 ## Introduction
 
