@@ -1,6 +1,6 @@
 # <center>  Customer Segmentation Report for Arvato Financial Services </center>
 *A report for Udacity Data Scientist Capstone Project*
-
+![avatar](/pic/title.jpg)
 
 ## Introduction
 
@@ -62,3 +62,36 @@ The numerical feature might have more value,so I will check the value count bigg
 
 ### c) Deal with the categories features
 
+I replace some singular value in categories and redefine the datatype with float.
+
+For example: The feature 'CAMEO_DEUG_2015'
+![avatar](/pic/cameo.jpg)
+
+## Customer Segmentation 
+I would normalize the data with StandardScaler and reduce the dimension with PCA.
+
+![avatar](/pic/reduce_features.jpg)
+
+![avatar](/pic/features_ratio.jpg)
+
+I have done dimensionality reduction by getting explained ratio of principal components, As i observed 120 components/ eigen values were sufficient to explain more 80% variance in data so I opted that out.
+
+At last I cluster the data with the KMeans.
+
+![avatar](/pic/kmeans.jpg)
+
+I think 17 is the best from the above picture based on the average distance.I would show the 17 number of clusters for the segmentation task.
+
+![avatar](/pic/result.jpg)
+
+I computed the percentage of all 17 clusters of the two datasets which were the demographics data and the customers data.
+I drawed the percentage of the clusters pictures for each data.
+I found the overrepresented cluster 8 and the underrepresented cluster 14.
+The cluster 8 contained component 0 which was the top1 components
+The cluster 14 contained component 0 and component 2 which were the top2 components
+The component 0 contained KBA13_ANTG3,PLZ8_ANTG3,KBA13_BAUMAX,KBA13_ANTG4,PLZ8_BAUMAX,EWDICHTE,PLZ8_ANTG4 which were the top7 features of it.All of them meaned the cars level.
+The component 2 contained D19_GESAMT_ANZ_24,D19_GESAMT_ANZ_12 which were the top2 features of it.All of them meaned household and family homes.
+I suggest the cluster 3,5,6,7,8,9,15 of the general population that are more likely to be part of the mail-order company's main customer base.
+
+## supplementary 
+There were many parts for improvement in the process From the real life demographic data provided by Arvato Financials.I can would use the autoencoder to reduce dimensionality.Other,I use the deep learning to accomplish the  task that use supervised Learning to identify targets for marketing campaign.
