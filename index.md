@@ -1,39 +1,64 @@
-# Is the salary of female developers lower than that of male?
-![avatar](./title.jpg)
-Last month I read 'Man Disconnected:How technology has sabotaged what it means to be male' , a book written by  Philip Zimbardo / Nikita D. Coulombe.The book tell us that manhood is in crisis. So I want to find out if the salary of female developers is higher than that of male at present.<br>
-StackOverflow has published the results of their 2017 and 2018 Developer Survey. <br>
-Let's take a look at the difference in wages between male and female developers in 2 years.
-We have 12891 salary data in 2017 and 50578 salary data in 2018.Because of the need to analyze salary data,delete the data that is nan. <br>
-A quartile is a type of quantile. The first quartile (Q1) is defined as the middle number between the smallest number and the median of the data set. The second quartile (Q2) is the median of the data. The third quartile (Q3) is the middle value between the median and the highest value of the data set. <br>
-So I choose the salary from Q1 to Q3 in order to avoid extreme values.
-We have 6399  data in 2017 and 25286 salary data in 2018 .
-We also used the gender attributes and found the data of gender missed is less than 1%, so I drop it.
-At last we have 5891 data in 2017 and 23712 data in 2018.
+# <center>  Customer Segmentation Report for Arvato Financial Services </center>
+*A report for Udacity Data Scientist Capstone Project*
 
-We will investigate this issue in three steps.
-## Question 1:Is wages increased?
-Let us confirm the overall situation of wages compared to the trend of the this two years.
-![avatar](./q1_bar.png)
-![avatar](./q1_line.png)
-<br>
-The answer is very clear.Low-income developers’ wages fall.Middle-income developers are basically flat.High-income developer income has increased significantly.
 
-## Question 2:Does female developer salary increase?
-According to the question 1, let us look at the increase in women’s wages.
-![avatar](./q2_bar.png)
-<br>
- We can see that the average annual income of female developers has increased by more than 11.2% this year.
+## Introduction
 
-## Question 3:Is women’s wages are higher than men’s?
-Finally,we also need to compare the wages of women and men in two years.
-![avatar](./q3_2017.png)
-<center>2017</center>
+In this project, I would analyze demographics data for customers of a mail-order sales company in Germany, comparing it against demographics information for the general population. I'll use unsupervised learning techniques to perform customer segmentation, identifying the parts of the population that best describe the core customer base of the company. Then, I'll demographics information for targets of a marketing campaign for the company, and use a model to predict which individuals are most likely to convert into becoming customers for the company. The data of the project that has been provided by our partners at Bertelsmann Arvato Analytics, and represents a real-life data science task.
 
-![avatar](./q3_2018.png)
-<center>2018</center>
-<br>
-Looking at the data from these two years,The average income of female developers is basically the same as that of men, but there is a slight overshoot.
+## Get to Know the Data
+There are 4 data set in this project.<br>
+AZDIAS: Demographics data for the general population of Germany; 891 211 persons (rows) x 366 features (columns).<br>
+CUSTOMERS: Demographics data for customers of a mail-order company; 191 652 persons (rows) x 369 features (columns).<br>
+MAILOUT_TRAIN.csv: Demographics data for individuals who were targets of a marketing campaign; 42 982 persons (rows) x 367 (columns).<br>
+MAILOUT_TEST.csv: Demographics data for individuals who were targets of a marketing campaign; 42 833 persons (rows) x 366 (columns).<br>
+Each row of the demographics files represents a single person, but also includes information outside of individuals, including information about their household, building, and neighborhood. <br>
+I will deal with the AZDIAS dataset and the CUSTOMERS dataset and use unsupervised learning to perform customer segmentation,The result would be described parts of the general population that are more likely to be part of the mail-order company's main customer base.
 
-## Conclusion
-If the data can represent the current income of all developers,we can answer the question of the title.  The answer is direct negative.But the survey_results_public of stackoverflow is not enough, and there is a lack of data from many countries, such as China,so only as a reference.<br>
-[Code source](https://github.com/xueweiyema/xueweiyema.github.io/blob/master/SalaryTrend.ipynb) 
+I will show the overall data situation.AZDIAS dataset contains 366 features and CUSTOMERS dataset contains more 3 feature about customer infomation than AZDIAS dataset.
+![avatar](/pic/azdias_customers_head.jpg)
+Randomly present the distribution of several dimensions
+KBA13_ANTG3
+![avatar](/pic/KBA13_ANTG3.jpg)
+KBA13_BJ_2004
+![avatar](/pic/KBA13_BJ_2004.jpg)
+D19_BUCH_HD
+![avatar](/pic/D19_BUCH_HD.jpg)
+KBA13_HALTER_45
+![avatar](/pic/KBA13_HALTER_45.jpg)
+
+It can be seen from the distribution diagram of the above features that they are normally distributed.
+
+## Clean the Data
+I will process the data in five steps
+
+### a) Deal with the missing data features and row
+This project provides two documentation.There are 'DIAS Attributes - Values 2017.xlsx' and 'DIAS Information Levels - Attributes 2017.xlsx'.
+In these documentation there are some descriptions about the unknown value.
+
+![avatar](/pic/unknown.jpg)
+
+I think the unknown value can be replaced with a nan value.Let us check the distribution of nan values
+
+![avatar](/pic/missing_value_of_col.jpg)
+
+I would remove the features that has over 30% missing rate. 
+
+![avatar](/pic/missing_value_of_row.jpg)
+
+I would remove the row that has over 10% missing rate
+
+### b) Deal with the numerical features
+
+I found the numerical features based on the attribute type and the total number of each attribute value.
+
+features group by datatype 
+![avatar](/pic/dtype.jpg)
+
+total number of each attribute value
+![avatar](/pic/value_counts.jpg)
+
+The numerical feature might have more value,so I will check the value count bigger than 30.I will use the mean to fill in the nan value for the numerical features.
+
+### c) Deal with the categories features
+
