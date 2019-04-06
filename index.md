@@ -93,5 +93,6 @@ The component 0 contained KBA13_ANTG3,PLZ8_ANTG3,KBA13_BAUMAX,KBA13_ANTG4,PLZ8_B
 The component 2 contained D19_GESAMT_ANZ_24,D19_GESAMT_ANZ_12 which were the top2 features of it.All of them meaned household and family homes.
 I suggest the cluster 3,5,6,7,8,9,15 of the general population that are more likely to be part of the mail-order company's main customer base.
 
-## supplementary 
-There were many parts for improvement in the process From the real life demographic data provided by Arvato Financials.I can would use the autoencoder to reduce dimensionality.Other,I use the deep learning to accomplish the  task that use supervised Learning to identify targets for marketing campaign.
+## Conclusion
+The difficulty of the dataset in this project is that there are many dimensions, the description of each dimension is not clear, and the difficulty of cleaning is relatively large.
+There are many features in this project that belong to category features. The use of PCA for dimensionality reduction is not particularly good. The Kmeans algorithm is not particularly effective for such features. The next step is to try AUTOENCODING and K-prototype.
